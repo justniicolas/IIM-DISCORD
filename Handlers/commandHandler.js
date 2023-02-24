@@ -8,7 +8,8 @@ function loadCommands(client) {
   
       for (const file of commandFiles) {
         const commandFile = require(`../Commands/${folder}/${file}`);
-  
+        
+        const properties = {folder, ...commandFile};
         client.commands.set(commandFile.data.name, commandFile);
   
         commandsArray.push(commandFile.data.toJSON());

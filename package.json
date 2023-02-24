@@ -3,6 +3,7 @@
     "ascii-table": "^0.0.9",
     "ascii-table3": "^0.8.2",
     "discord.js": "^14.7.1",
-    "fs": "^0.0.1-security"
+    "fs": "^0.0.1-security",
+    "mongoose": "^6.10.0"
   }
 }
