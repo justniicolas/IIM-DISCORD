@@ -33,7 +33,7 @@ module.exports = {
         {
           name: 'Heure',
           value: heure
-        }
+        },
       )
       .setTimestamp()
 .setFooter({ text: 'Créé par ' + interaction.user.username, iconUrl: userAvatarURL });
