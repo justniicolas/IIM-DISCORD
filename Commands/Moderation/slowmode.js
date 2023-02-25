@@ -18,7 +18,7 @@ module.exports = {
     ),
     category : "Modération",
   async execute(interaction, client) {
-    t;
+
     const hasPermission = interaction.member.roles.cache.some((r) =>
       r.permissions.has(PermissionFlagsBits.ManageMessages)
     );
@@ -38,6 +38,7 @@ module.exports = {
 
     await interaction.reply({
       content: `Slowmode actif avec un temps de **${time}**s pour **${channel.name}**`,
+      ephemeral: true,
     });
   },
 };

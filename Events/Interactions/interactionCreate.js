@@ -14,12 +14,7 @@ module.exports = {
       command.execute(interaction, client);
     } else if (interaction.isButton()) {
         const role = interaction.guild.roles.cache.get('1078708973097734174');
-        return interaction.member.roles.add(role).then((member) => {
-            interaction.reply({
-                content: 'Role added',
-                ephemeral: true
-            })
-        })
+        return interaction.member.roles.add(role);
     } else {
         return;
     }
