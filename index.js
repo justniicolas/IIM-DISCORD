@@ -19,6 +19,8 @@ client.on('ready', () => {
 client.commands = new Collection();
 client.config = require ('./config.json');
 
+module.exports = client;
+
 client.login(client.config.token).then(() => {
     loadEvents(client);
     loadCommands(client);

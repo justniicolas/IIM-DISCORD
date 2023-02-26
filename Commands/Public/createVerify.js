@@ -6,6 +6,7 @@ module.exports = {
     .setDescription('Vérifie un utilisateur')
     .addChannelOption(option => option.setName('channel').setDescription('Channel de vérification').setRequired(true))
     .setDefaultMemberPermissions(PermissionFlagsBits.Administrator),
+    category : 'Modération',
   async execute(interaction, client) {
     const channel = interaction.options.getChannel('channel');
     const verifyEmbed = new EmbedBuilder()

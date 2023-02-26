@@ -9,8 +9,39 @@ const {
 module.exports = {
   data: new SlashCommandBuilder()
     .setName("rules")
-    .setDescription("Return the rules button panel"),
+    .setDescription("Return the rules button panel")
+    .setDefaultMemberPermissions(PermissionFlagsBits.ManageRoles),
     category : "Modération",
+    async executeSlashCommand(interaction) {
+      if (!interaction.member.permissions.has(Permissions.FLAGS.Administrator)) {
+        await interaction.reply({
+          content: "Vous n'avez pas la permission d'exécuter cette commande.",
+          ephemeral: true,
+        });
+        return;
+      }
+  
+      await interaction.reply("Example command executed!");
+    },
+  
+    // Gère les autorisations pour les rôles spécifiques
+    async executeInteractionCreate(interaction) {
+      if (interaction.isCommand()) {
+        // Crée une nouvelle collection de permissions
+        const permissions = new Permissions();
+  
+        // Autorise uniquement le rôle "moderator" à exécuter la commande
+        if (interaction.guild) {
+          permissions.add({
+            id: "1076918937394094221",
+            permission: true,
+          });
+        }
+  
+        // Applique les permissions à la commande
+        await interaction.command.permissions.set({ permissions });
+      }
+    },
   async execute(interaction, client) {
     let embedcgu = new EmbedBuilder()
       .setTitle(`CGU DISCORD :`)
