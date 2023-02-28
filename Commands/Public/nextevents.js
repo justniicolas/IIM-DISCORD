@@ -11,7 +11,7 @@ module.exports = {
     const messages = await salon.messages.fetch();
 
     // Filtrer les messages qui contiennent des événements non validés
-    const evenements = messages.filter(message => message.author.id === interaction.client.user.id && message.embeds.length > 0 && message.embeds[0].fields.length === 3);
+    const evenements = messages.filter(message => message.author.id === interaction.client.user.id && message.embeds.length > 0 && message.embeds[0].fields.length === 4);
 
     // Trier les événements par date
     const sortedEvenements = evenements.sort((a, b) => {
@@ -29,7 +29,7 @@ module.exports = {
     // Ajouter chaque événement à l'Embed
     sortedEvenements.forEach(message => {
       const evenementEmbed = message.embeds[0];
-      evenementsEmbed.addFields({ name: evenementEmbed.title, value: `${evenementEmbed.fields[0].value} à ${evenementEmbed.fields[1].value}` });
+      evenementsEmbed.addFields({ name: evenementEmbed.title, value: `le ${evenementEmbed.fields[1].value} à ${evenementEmbed.fields[2].value}` });
         });
 
     // Envoyer l'Embed avec les prochains événements

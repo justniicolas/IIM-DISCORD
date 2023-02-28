@@ -14,7 +14,7 @@ module.exports = {
     const messages = await salon.messages.fetch();
 
     // Filtrer les messages qui contiennent des événements non validés
-    const evenements = messages.filter(message => message.author.id === interaction.client.user.id && message.embeds.length > 0 && message.embeds[0].fields.length === 3);
+    const evenements = messages.filter(message => message.author.id === interaction.client.user.id && message.embeds.length > 0 && message.embeds[0].fields.length === 4);
 
     // Trouver l'événement correspondant au nom donné en option
     const nomEvenement = interaction.options.getString('nom');
@@ -33,7 +33,7 @@ module.exports = {
       .addFields(
         { name: 'Date', value: selectedEvenement.embeds[0].fields[1].value, inline: true },
         { name: 'Heure', value: selectedEvenement.embeds[0].fields[2].value, inline: true },
-        // { name: 'Lieu', value: selectedEvenement.embeds[0].fields[0].value, inline: true }
+        { name: 'Lieu', value: selectedEvenement.embeds[0].fields[3].value, inline: true }
       )
       
       .setTimestamp();

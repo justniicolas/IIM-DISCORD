@@ -3,7 +3,7 @@ const {
   ButtonBuilder,
   ActionRowBuilder,
   EmbedBuilder,
-  Embed,
+  PermissionFlagsBits,
 } = require("discord.js");
 
 module.exports = {

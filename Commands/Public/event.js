@@ -7,12 +7,14 @@ module.exports = {
     .addStringOption(option => option.setName('nom').setDescription('Nom de l\'événement').setRequired(true))
     .addStringOption(option => option.setName('date').setDescription('Date de l\'événement (format AAAA-MM-JJ)').setRequired(true))
     .addStringOption(option => option.setName('heure').setDescription('Heure de l\'événement (format HH:MM)').setRequired(true))
+    .addStringOption(option => option.setName('lieu').setDescription('Lieu de l\'événement').setRequired(true))
     .addStringOption(option => option.setName('description').setDescription('Description de l\'événement').setRequired(true)),
   category: 'Public',
   async execute(interaction) {
     const nom = interaction.options.getString('nom');
     const date = interaction.options.getString('date');
     const heure = interaction.options.getString('heure');
+    const lieu = interaction.options.getString('lieu');
     const description = interaction.options.getString('description');
 
     // Trouver le salon où envoyer l'événement
@@ -34,6 +36,10 @@ module.exports = {
           name: 'Heure',
           value: heure
         },
+        {
+          name: 'Lieu',
+          value: lieu
+        }
       )
       .setTimestamp()
 .setFooter({ text: 'Créé par ' + interaction.user.username, iconUrl: userAvatarURL });

@@ -6,8 +6,8 @@ const {
 
 module.exports = {
   data: new SlashCommandBuilder()
-    .setName("welcomeembed")
-    .setDescription("Welcome Embed")
+    .setName("botembed")
+    .setDescription("Bot Embed")
     .setDefaultMemberPermissions(PermissionFlagsBits.ManageRoles),
   category: "Embed",
 
@@ -32,10 +32,10 @@ module.exports = {
   },
   async execute(interaction, client) {
     const embed = new EmbedBuilder()
-      .setTitle("Bienvenue sur le serveur IIM - Digital School !")
+      .setTitle("Les détails du BOT IIM")
       .setDescription("IIM - Digital School")
-      .setColor(0x00ae86)
-      .setThumbnail(client.user.displayAvatarURL())
+      .setColor(0xf07d00)
+      .setThumbnail(client.user.displayAvatarURL())                 
       .setTimestamp(Date.now())
       .setAuthor({
         url: "https://nicolas-becharat.com",
@@ -48,9 +48,9 @@ module.exports = {
       })
       .setURL("https://www.iim.fr/")
       .addFields({
-        name: "RENTREE 2023",
+        name: "LE BOT IIM",
         value:
-          "Bienvenue sur le serveur IIM - Digital School !, Nous sommes heureux de vous compter parmi nous ! L'objectif de ce serveur est de vous permettre de vous informer sur les événements à l'IIM et dans le campus, de rassembler les étudiants dans un seul serveur Discord, mais aussi de travailler en effet plusieurs catégories, salons, ou encore commandes sont mis à votre disposition pour améliorer la vie sur le serveur et le campus. Je vous invite à venir découvrir le serveur et ces commandes pour apprécier pleinement le serveur !",
+          "Le bot IIM est un bot Discord dédié à aider les étudiants de l'IIM à mieux travailler et à s'organiser. Constamment en évolution, il est régulièrement mis à jour pour offrir de nouvelles fonctionnalités et améliorer l'expérience utilisateur. Grâce à lui, vous pouvez rester informé des dernières actualités sur le campus et dans le monde entier, grâce à sa rubrique dédiée. Pour accéder à toutes les commandes disponibles, il vous suffit de taper '/help' dans le chat. Si vous préférez parcourir toutes les options disponibles, vous pouvez simplement taper le caractère '/' pour afficher la liste complète des commandes. Ce bot est développé par Nicolas Becharat, étudiant en 1ème année à l'IIM en Javascipt via Discord.js v14.",
         inline: true,
       });
     await interaction.reply({
